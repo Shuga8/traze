@@ -1,0 +1,10 @@
+#error-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+}/*# sourceMappingURL=App.css.map */

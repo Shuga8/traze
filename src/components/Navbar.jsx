@@ -4,43 +4,48 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isToggle, setToggleMenu] = useState(false);
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse "
+          className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-cyan-800 dark:text-sky-400">
             TZ
           </span>
         </Link>
+
         <button
           data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm md:hidden text-cyan-800 dark:text-sky-400"
           aria-controls="navbar-default"
           aria-expanded="false"
+          onClick={() => setToggleMenu(!isToggle)}
         >
-          {!isToggle ? (
-            <RiMenu3Line
-              color="#131313"
+          {isToggle ? (
+            <RiCloseLine
+              className="text-cyan-800 dark:text-sky-400"
               size={27}
-              onClick={() => {
-                setToggleMenu(true);
-              }}
             />
           ) : (
-            <RiCloseLine
-              color="#131313"
+            <RiMenu3Line
+              className="text-cyan-800 dark:text-sky-400"
               size={27}
-              onClick={() => {
-                setToggleMenu(false);
-              }}
             />
           )}
         </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+
+        <div
+          className={
+            isToggle
+              ? "block w-full md:block md:w-auto"
+              : "hidden w-full md:block md:w-auto"
+          }
+          id="navbar-default"
+        >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
             <li>
               <Link

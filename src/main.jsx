@@ -8,11 +8,14 @@ import "@fontsource/roboto/700.css";
 import App from "./App.jsx";
 import "./index.css";
 import { TrazzerContextProvider } from "./context/TrazzerContext.jsx";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TrazzerContextProvider>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </TrazzerContextProvider>
   </React.StrictMode>
 );

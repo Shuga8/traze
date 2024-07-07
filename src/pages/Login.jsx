@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../components";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
+  const { login, loading, emailError, passError, loginSuccess } = useLogin();
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+
+    const formEl = document.forms["loginForm"];
+    const email = formEl["email"].value;
+    const password = formEl["password"].value;
+
+    await login(email, password);
+  };
+
   return (
     <>
       <Navbar />
@@ -19,7 +32,17 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+
+              {loginSuccess && (
+                <p className="text-xs text-green-500  p-1 text-center my-1 bg-gray-200 rounded">
+                  {loginSuccess}
+                </p>
+              )}
+              <form
+                className="space-y-4 md:space-y-6"
+                action=""
+                name="loginForm"
+              >
                 <div>
                   <label
                     for="email"
@@ -35,6 +58,9 @@ const Login = () => {
                     placeholder="name@company.com"
                     required=""
                   />
+                  {emailError && (
+                    <p className="text-red-500 text-sm">{emailError}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -51,6 +77,9 @@ const Login = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                   />
+                  {passError && (
+                    <p className="text-red-500 text-sm">{passError}</p>
+                  )}
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
@@ -81,9 +110,20 @@ const Login = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className={
+                    !loading
+                      ? "w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      : "w-full text-white bg-primary-300  focus:ring-4 focus:outline-none focus:ring-primary-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-300 "
+                  }
+                  onClick={loginUser}
                 >
-                  Sign in
+                  {!loading ? (
+                    "Sign in"
+                  ) : (
+                    <span className="material-symbols-outlined spinner">
+                      progress_activity
+                    </span>
+                  )}
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}

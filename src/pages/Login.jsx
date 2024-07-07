@@ -45,7 +45,7 @@ const Login = () => {
               >
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Email
@@ -64,7 +64,7 @@ const Login = () => {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Password
@@ -94,7 +94,7 @@ const Login = () => {
                     </div>
                     <div className="ml-3 text-sm">
                       <label
-                        for="remember"
+                        htmlFor="remember"
                         className="text-gray-500 dark:text-gray-300"
                       >
                         Remember me

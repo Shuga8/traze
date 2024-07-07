@@ -105,7 +105,7 @@ const Register = () => {
               >
                 <div>
                   <label
-                    for="username"
+                    htmlFor="username"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Username
@@ -124,7 +124,7 @@ const Register = () => {
                 </div>
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Email
@@ -143,7 +143,7 @@ const Register = () => {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Password
@@ -163,7 +163,7 @@ const Register = () => {
                 </div>
                 <div>
                   <label
-                    for="confirm-password"
+                    htmlFor="confirm-password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Confirm password
@@ -192,7 +192,7 @@ const Register = () => {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      for="terms"
+                      htmlFor="terms"
                       className="font-light text-gray-500 dark:text-gray-300"
                     >
                       I accept the{" "}

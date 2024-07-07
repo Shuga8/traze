@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
   const [isToggle, setToggleMenu] = useState(false);
+  const { user } = useAuthContext();
+  const { logout } = useLogout();
+
+  const logoutUser = async (e) => {
+    e.preventDefault();
+    await logout();
+  };
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -56,22 +65,37 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                to="/login"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/register"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                Signup
-              </Link>
-            </li>
+
+            {user ? (
+              <>
+                <Link
+                  to="/logout"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  onClick={logoutUser}
+                >
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/register"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

@@ -1,13 +1,40 @@
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { TrazzerContext } from "../context/TrazzerContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   const [isToggle, setToggleMenu] = useState(false);
   const { user } = useAuthContext();
   const { logout } = useLogout();
+  const [walletAddress, setWalletAddress] = useState(null);
+  const { connectWallet, checkIfWalletIsConnected } =
+    useContext(TrazzerContext);
+
+  useEffect(() => {
+    const checkWalletConnection = async () => {
+      const address = await checkIfWalletIsConnected();
+      if (address) {
+        setWalletAddress(address);
+      }
+    };
+
+    checkWalletConnection();
+  }, [checkIfWalletIsConnected]);
+
+  const connect = async () => {
+    const address = await checkIfWalletIsConnected();
+    if (address) {
+      setWalletAddress(address);
+      console.table(address);
+      return;
+    }
+    const newAddress = await connectWallet();
+    setWalletAddress(newAddress);
+  };
 
   const logoutUser = async (e) => {
     e.preventDefault();
@@ -55,7 +82,7 @@ const Navbar = () => {
           }
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 items-center justify-normal">
             <li>
               <Link
                 to="/"
@@ -75,6 +102,20 @@ const Navbar = () => {
                 >
                   Logout
                 </Link>
+
+                <Button
+                  variant="contained"
+                  type="button"
+                  color="success"
+                  className="connect-wallet-btn"
+                  onClick={connect}
+                >
+                  {walletAddress
+                    ? walletAddress.slice(0, 6) +
+                      "..." +
+                      walletAddress.slice(-4)
+                    : "Connect"}
+                </Button>
               </>
             ) : (
               <>

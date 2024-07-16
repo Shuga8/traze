@@ -16,11 +16,15 @@ export const useLogout = () => {
 
     const response = await logoutUser.json();
 
-    if (response.data.success) {
+    if (response.message == "Unauthenticated.") {
       localStorage.removeItem("user");
-
       dispatch({ type: "LOGOUT" });
+      return;
+    }
 
+    if (response.data.success == true) {
+      localStorage.removeItem("user");
+      dispatch({ type: "LOGOUT" });
       console.log("token deleted");
     } else {
       localStorage.removeItem("user");

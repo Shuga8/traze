@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     async function doAuthTest() {
+      if (!user) return;
       const myHeaders = new Headers();
       myHeaders.append("Accept", "application/vnd.api+json");
       myHeaders.append("Content-Type", "application/vnd.api+json");

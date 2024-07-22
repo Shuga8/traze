@@ -1,11 +1,12 @@
-import React from "react";
-import { Navbar } from "../components";
+import React, { useEffect, useRef } from "react";
+import { Navbar, Hero } from "../components";
+import * as THREE from "three";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <div>Home</div>
+      <Hero />
     </>
   );
 };

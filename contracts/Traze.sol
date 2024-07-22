@@ -3,14 +3,16 @@ pragma solidity ^0.8.24;
 
 contract Traze {
 
-    address payable owner;
+    address public  owner;
 
-    constructor(address _addr){
-        owner = payable(_addr);
+    constructor(){
+        owner = msg.sender;
     }
 
-    function fundAccount (address _user_addr) public pure  returns (bool) {
-        
+    function fundAccount (address _user_addr, uint256 amount) public pure returns (string memory) {
+        require(_user_addr != address(0), "invalid Addess");
+        require(amount < 0 ether, "amount is not valid");
+        return "account funded successfully!";
     }
 
 }

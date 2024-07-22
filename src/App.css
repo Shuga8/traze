@@ -80,6 +80,157 @@
   animation: bottomShake 2s infinite ease-in-out;
 }
 
+.vnode__crypto-analysis-container {
+  width: 100%;
+  padding: 1.4rem 1rem;
+}
+.vnode__crypto-analysis-container h2 {
+  color: var(--color-text);
+  font-size: 24px;
+  margin: 0px 0px 12px 0px;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__type-actions {
+  padding: 8px 10px;
+  background: #333;
+  border-radius: 3px;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__type-actions button {
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 7px 10px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__type-actions button:not(.active):hover {
+  background: #222;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__type-actions button.active {
+  background: #000;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__view-actions {
+  padding: 8px 10px;
+  background: transparent;
+  border-radius: 3px;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__view-actions button {
+  outline: none;
+  border: 1px solid #555;
+  background: transparent;
+  padding: 7px 10px;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.vnode__crypto-analysis-container .vnode__analysis-actions-container .vnode__view-actions button.active {
+  background: #fff;
+  border: 1px solid #aaa;
+  transition: background 0.1s ease-in-out;
+  color: #000;
+}
+.vnode__crypto-analysis-container .tab-content {
+  width: 100%;
+  padding: 10px;
+  overflow: auto;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+.vnode__crypto-analysis-container .tab-content table {
+  width: 100%;
+  min-width: 1400px;
+  border-spacing: 0px;
+}
+.vnode__crypto-analysis-container .tab-content table th {
+  padding: 15px 12px;
+  background: transparent;
+  font-size: 14px;
+  color: var(--color-text);
+  border-bottom: 2px solid #999;
+}
+.vnode__crypto-analysis-container .tab-content table tbody td {
+  border-bottom: 2px solid #333 !important;
+}
+.vnode__crypto-analysis-container .tab-content table td {
+  font-weight: 600;
+  padding: 10px 4px;
+}
+.vnode__crypto-analysis-container .tab-content table td.star {
+  cursor: pointer;
+}
+.vnode__crypto-analysis-container .tab-content table td span {
+  color: #444;
+  font-size: 12px;
+}
+.vnode__crypto-analysis-container .tab-content table td.name {
+  display: flex;
+  justify-content: left;
+  gap: 5px;
+}
+.vnode__crypto-analysis-container .tab-content table td.name > div small {
+  color: #444;
+}
+.vnode__crypto-analysis-container .tab-content table td img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.vnode__crypto-analysis-container .tab-content table td.negative {
+  background: rgba(237, 15, 15, 0.4941176471);
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+}
+.vnode__crypto-analysis-container .tab-content table td.positive {
+  background: rgba(29, 156, 4, 0.4941176471);
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+}
+.vnode__crypto-analysis-container .tab-content table tr {
+  border-bottom: 2px solid #333 !important;
+}
+.vnode__crypto-analysis-container .tab-content table tr th.sticky {
+  position: sticky;
+  z-index: 2;
+  white-space-collapse: collapse !important;
+  overflow-x: hidden;
+  width: -moz-max-content !important;
+  width: max-content !important;
+}
+.vnode__crypto-analysis-container .tab-content table tr td.sticky {
+  position: sticky;
+  z-index: 2;
+  white-space: no-wrap !important;
+  overflow-x: hidden;
+  background: var(--color-bg);
+  width: -moz-max-content !important;
+  width: max-content !important;
+}
+.vnode__crypto-analysis-container .tab-content table tr th.sticky:nth-child(1),
+.vnode__crypto-analysis-container .tab-content table tr td.sticky:nth-child(1) {
+  left: 0;
+  text-align: left;
+}
+.vnode__crypto-analysis-container .tab-content table tr th.sticky:nth-child(2),
+.vnode__crypto-analysis-container .tab-content table tr td.sticky:nth-child(2) {
+  left: 40px;
+  text-align: left;
+}
+.vnode__crypto-analysis-container .tab-content table tr th.sticky:nth-child(3),
+.vnode__crypto-analysis-container .tab-content table tr td.sticky:nth-child(3) {
+  left: 80px;
+  text-align: left;
+}
+
 @media (max-width: 675px) {
   #hero-section {
     flex-direction: column;

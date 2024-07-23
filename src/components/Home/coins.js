@@ -19,6 +19,7 @@ import near_logo from "../../assets/coins/6535.png";
 import matic_logo from "../../assets/coins/3890.png";
 import ltc_logo from "../../assets/coins/2.png";
 import dai_logo from "../../assets/coins/4943.png";
+import leo_logo from "../../assets/coins/3957.png";
 
 export {
   btc_logo,
@@ -42,4 +43,5 @@ export {
   matic_logo,
   ltc_logo,
   dai_logo,
+  leo_logo,
 };

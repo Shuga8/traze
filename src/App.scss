@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #error-page {
   width: 100%;
   height: 100vh;
@@ -49,8 +54,7 @@
 
   .icons-animation-area {
     position: relative;
-
-    min-height: 400px;
+    height: 400px;
     background: url("assets/ai.png") no-repeat center center / cover;
 
     img {
@@ -94,22 +98,24 @@
   }
 }
 
-.vnode__crypto-analysis-container {
+.tz__crypto-analysis-container {
   width: 100%;
   padding: 1.4rem 1rem;
 
   h2 {
     color: var(--color-text);
-    font-size: 24px;
+    font-size: 18px;
     margin: 0px 0px 12px 0px;
   }
 
-  .vnode__analysis-actions-container {
+  .tz__analysis-actions-container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: nowrap;
 
-    .vnode__type-actions {
+    .tz__type-actions {
       padding: 8px 10px;
       background: #333;
       border-radius: 3px;
@@ -134,7 +140,7 @@
       }
     }
 
-    .vnode__view-actions {
+    .tz__view-actions {
       padding: 8px 10px;
       background: transparent;
       border-radius: 3px;
@@ -165,17 +171,27 @@
     white-space: nowrap;
     transition: all 0.3s ease-in-out;
 
+    &::-webkit-scrollbar {
+      height: 6px; /* Height of the horizontal scrollbar */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888; /* Color of the scrollbar thumb */
+      border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+    }
+
     table {
       width: 100%;
-      min-width: 1400px;
+      min-width: 1300px;
       border-spacing: 0px;
 
       th {
         padding: 15px 12px;
         background: transparent;
         font-size: 14px;
-        color: var(--color-text);
-        border-bottom: 2px solid #999;
+        color: #fff;
+        border-top: 2px solid #333;
+        border-bottom: 2px solid #333;
       }
 
       tbody td {
@@ -184,11 +200,17 @@
 
       td {
         font-weight: 600;
-
         padding: 10px 4px;
+        font-size: 14px;
 
         &.star {
           cursor: pointer;
+          color: #999;
+
+          &:hover {
+            color: #fff;
+            transition: 0.3s ease-in-out;
+          }
         }
 
         span {
@@ -212,7 +234,7 @@
           display: block;
           width: 30px;
           height: 30px;
-          object-fit: cover;
+          object-fit: contain;
           border-radius: 50%;
         }
 
@@ -233,21 +255,38 @@
 
       tr {
         border-bottom: 2px solid #333 !important;
+
         th.sticky {
           position: sticky;
           z-index: 2;
           white-space-collapse: collapse !important;
           overflow-x: hidden;
           width: max-content !important;
+          background: #242424;
+
+          &.name {
+            text-overflow: ellipsis; /* Handle overflow text */
+            white-space: nowrap; /* Ensure the text does not wrap */
+            overflow: hidden; /* Hide any overflowed text */
+          }
         }
+
         td.sticky {
           position: sticky;
           z-index: 2;
           white-space: no-wrap !important;
           overflow-x: hidden;
-          background: var(--color-bg);
-          width: max-content !important;
-          // margin-right: -300px;
+          // width: fill-content !important;
+          background: #242424;
+
+          &.name {
+            // background: green;
+            // padding-right: 200px;
+            // width: 200px; /* Set a fixed width */
+            text-overflow: ellipsis; /* Handle overflow text */
+            white-space: nowrap; /* Ensure the text does not wrap */
+            overflow: hidden; /* Hide any overflowed text */
+          }
         }
 
         th.sticky:nth-child(1),
@@ -258,13 +297,13 @@
 
         th.sticky:nth-child(2),
         td.sticky:nth-child(2) {
-          left: 40px;
+          left: 30px;
           text-align: left;
         }
 
         th.sticky:nth-child(3),
         td.sticky:nth-child(3) {
-          left: 80px;
+          left: 60px;
           text-align: left;
         }
       }
@@ -277,6 +316,73 @@
     flex-direction: column;
     > div {
       flex: 1;
+    }
+  }
+
+  .tz__crypto-analysis-container {
+    .tz__analysis-actions-container {
+      .tz__type-actions {
+        padding: 9px 7px 0px 7px;
+        place-items: center;
+
+        button {
+          padding: 6px;
+          font-size: 11px;
+        }
+      }
+
+      .tz__view-actions {
+        button {
+          font-size: 11px;
+        }
+      }
+    }
+
+    .tab-content {
+      table {
+        th {
+          font-size: 12px;
+        }
+
+        td {
+          font-size: 11px;
+          &.name {
+            font-size: 11px;
+
+            > div {
+              small {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+
+        tr {
+          th.sticky {
+            &.name {
+              max-width: 150px !important;
+            }
+          }
+
+          th.sticky:nth-child(1),
+          td.sticky:nth-child(1) {
+            left: 0;
+            text-align: left;
+          }
+
+          th.sticky:nth-child(2),
+          td.sticky:nth-child(2) {
+            left: 30px;
+            text-align: left;
+          }
+
+          th.sticky:nth-child(3),
+          td.sticky:nth-child(3) {
+            left: 60px;
+            text-align: left;
+          }
+        }
+      }
     }
   }
 }

@@ -9,9 +9,9 @@ const Analysis = () => {
   const [favoriteActive, setFavoriteActive] = useState(false);
   const [derivativeData, setDerivativeData] = useState([]);
   const [derivateLoading, isDerivativeLoading] = useState(true);
-  const [start, setStart] = useState(1);
+  const [start, setStart] = useState(21);
   const [limit, setLimit] = useState(20);
-  let derivativeIndex = 1;
+  let derivativeIndex = 21;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,34 +110,6 @@ const Analysis = () => {
                 </thead>
 
                 <tbody>
-                  {/* <tr>
-                  <td className="sticky star">
-                    <FaRegStar />
-                  </td>
-                  <td className="sticky">1</td>
-
-                  <td className="sticky name">
-                    <img src={img.btc_logo} alt="Coin Logo" />
-                    <div>
-                      Bitcoin
-                      <br />
-                      <small>BTC</small>
-                    </div>
-                  </td>
-
-                  <td>$66,831.21</td>
-
-                  <td className="negative">-0.25%</td>
-                  <td className="negative">-0.54%</td>
-                  <td className="negative">-6.12%</td>
-
-                  <td>$1.32T</td>
-                  <td>
-                    $25,809,551,098 <br /> <span>394,647 BTC</span>
-                  </td>
-                  <td>19,712,137 BTC</td>
-                </tr> */}
-
                   {derivativeData.map((coin) => {
                     let price = parseFloat(coin.quote.USD.price);
                     let change_in_24 = parseFloat(coin.quote.USD.volume_24h);
@@ -247,79 +219,47 @@ const Analysis = () => {
                 </tbody>
               </table>
             </div>
-            <nav aria-label="Page navigation example" className="mt-2">
+            <nav className="mt-2">
               <ul className="flex items-center -space-x-px h-8 text-sm">
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-transparent border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     <span className="sr-only">Previous</span>
-                    <span></span>
+                    <span class="material-symbols-outlined text-xs">
+                      arrow_back_ios
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     1
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     2
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    aria-current="page"
-                    className="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     3
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     4
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     5
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >
+                  <a className="flex cursor-pointer items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     <span className="sr-only">Next</span>
-                    <svg
-                      className="w-2.5 h-2.5 rtl:rotate-180"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 6 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 9 4-4-4-4"
-                      />
-                    </svg>
+                    <span className="material-symbols-outlined text-xs">
+                      arrow_forward_ios
+                    </span>
                   </a>
                 </li>
               </ul>

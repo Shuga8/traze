@@ -20,6 +20,9 @@ import matic_logo from "../../assets/coins/3890.png";
 import ltc_logo from "../../assets/coins/2.png";
 import dai_logo from "../../assets/coins/4943.png";
 import leo_logo from "../../assets/coins/3957.png";
+import pepe_logo from "../../assets/coins/24478.png";
+import icp_logo from "../../assets/coins/8916.png";
+import kas_logo from "../../assets/coins/20396.png";
 
 export {
   btc_logo,
@@ -44,4 +47,6 @@ export {
   ltc_logo,
   dai_logo,
   leo_logo,
+  pepe_logo,
+  icp_logo,
 };

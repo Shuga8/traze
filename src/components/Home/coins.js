@@ -23,6 +23,10 @@ import leo_logo from "../../assets/coins/3957.png";
 import pepe_logo from "../../assets/coins/24478.png";
 import icp_logo from "../../assets/coins/8916.png";
 import kas_logo from "../../assets/coins/20396.png";
+import etc_logo from "../../assets/coins/1321.png";
+// import kas_logo from "../../assets/coins/20396.png";
+// import kas_logo from "../../assets/coins/20396.png";
+// import kas_logo from "../../assets/coins/20396.png";
 
 export {
   btc_logo,

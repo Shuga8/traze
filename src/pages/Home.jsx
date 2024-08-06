@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Navbar, Hero, Analysis } from "../components";
+import { Navbar, Hero, Analysis, Subscribe } from "../components";
 import * as THREE from "three";
 
 const Home = () => {
@@ -8,6 +8,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Analysis />
+      <Subscribe />
     </>
   );
 };

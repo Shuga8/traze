@@ -22,6 +22,7 @@ const Derivatives = () => {
       setDerivativeData(data);
     } catch (err) {
       console.error("Error fetching data:", err);
+      fetchData();
     } finally {
       setDerivativeLoading(false);
     }
@@ -35,7 +36,8 @@ const Derivatives = () => {
     if (page === 1) {
       return;
     }
-    setPage((prevPage) => prevPage - 1);
+
+    if (pa) setPage((prevPage) => prevPage - 1);
     setStart((prevStart) => prevStart - limit);
     setDerivativeLoading(true);
   };
@@ -236,7 +238,7 @@ const Derivatives = () => {
         </table>
       </div>
       <nav className="mt-2 flex flex-row justify-between place-items-center">
-        <p className="text-white text-xs">Page {page} of 5</p>
+        <p className="text-white text-xs">Showing page {page} of 5</p>
         <ul className="flex items-center -space-x-px h-8 text-sm">
           <li>
             <a

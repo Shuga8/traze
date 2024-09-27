@@ -28,7 +28,7 @@ tr {
 
 #hero-section {
   width: 100%;
-  padding: 40px 30px;
+  padding: 5rem 4rem;
   display: flex;
   flex-wrap: wrap;
   place-items: center;
@@ -59,7 +59,7 @@ tr {
 
   .icons-animation-area {
     position: relative;
-    height: 400px;
+    height: 500px;
     background: url("assets/ai.png") no-repeat center center / cover;
 
     img {
@@ -350,6 +350,12 @@ tr {
       }
     }
   }
+}
+
+.footer {
+  background: #111;
+  width: 100%;
+  min-height: 300px;
 }
 
 @media (max-width: 675px) {

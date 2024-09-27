@@ -37,7 +37,7 @@ const Derivatives = () => {
       return;
     }
 
-    if (pa) setPage((prevPage) => prevPage - 1);
+    setPage((prevPage) => prevPage - 1);
     setStart((prevStart) => prevStart - limit);
     setDerivativeLoading(true);
   };

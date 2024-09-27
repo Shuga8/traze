@@ -38,10 +38,10 @@ const Hero = () => {
           </Link>
         </div>
         <div className="icons-animation-area">
-          <img src={icon_1} alt="icon-1" />
+          {/* <img src={icon_1} alt="icon-1" />
           <img src={icon_2} alt="icon-2" />
           <img src={icon_3} alt="icon-3" />
-          <img src={icon_4} alt="icon-4" />
+          <img src={icon_4} alt="icon-4" /> */}
         </div>
       </section>
     </>
